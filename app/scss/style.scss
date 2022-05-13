@@ -1,0 +1,319 @@
+@import url(/node_modules/normalize.css/normalize.css);
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Rubik+Glitch&family=Rubik:wght@400;700&display=swap');
+
+$colorBlack: #242424;
+$colorWhiteWithOpacity: rgba(255, 255, 255, .8);
+$colorWhite: #fff;
+$colorPrimary: #5d2af8;
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Rubik", sans-serif;
+}
+
+.glitched {
+  font-family: 'Rubik Glitch', cursive;
+  font-weight: 400;
+  color: $colorPrimary;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: $colorWhite;
+  font-family: 'Koulen', cursive;
+  font-size: 1.5em;
+  padding: 20px 0;
+}
+
+.logo {
+  text-transform: uppercase;
+}
+
+
+.main {
+  background-color: $colorBlack;
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+.accent-color {
+  color: $colorPrimary;
+}
+
+@mixin glitchText($offset, $text) {
+  content: $text;
+  position: absolute;
+  left: $offset;
+  top: $offset;
+  clip: rect(0, 900px, 0, 0);
+  background-color: $colorBlack;
+  color: $colorWhite;
+  animation: glitch 3s infinite alternate-reverse;
+  animation-delay: .5s;
+  width: 100%;
+}
+
+
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: 'Koulen', cursive;
+  font-size: 21.5vw;
+  color: $colorWhite;
+  background-color: $colorBlack;
+  font-weight: bold;
+
+  span {
+    color: $colorBlack;
+    background-color: $colorBlack;
+    animation: fadeWhite .5s forwards;
+    animation-delay: .5s;
+    position: relative;
+    transform: skew(10deg, 20deg);
+
+
+    &:after {
+      @include glitchText(2px, 'NIKITA OSHEV');
+    }
+    &:before {
+      @include glitchText(-1px, 'NIKITA OSHEV');
+    }
+  }
+
+  &.hide {
+    transform: skew(10deg, 20deg) translate(100%, 100%);
+    opacity: 0;
+    transition: transform 5s ease, opacity .5s ease;
+  }
+
+}
+
+
+
+@keyframes fadeWhite {
+  100% { color: $colorWhite; }
+}
+
+@keyframes glitch {
+  0% {
+    clip: rect(random(200)+px, 9999px, random(200)+px, 0);
+  }
+
+  5% {
+    clip: rect(random(200)+px, 9999px, random(200)+px, 0);
+  }
+
+  10% {
+    clip: rect(random(200)+px, 9999px, random(200)+px, 0);
+  }
+
+  15% {
+    clip: rect(random(200)+px, 9999px, random(200)+px, 0);
+  }
+
+  20% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  25% {
+    clip: rect(random(200)+px, 9999px, random(200)+px, 0);
+  }
+
+  30% {
+    clip: rect(random(200)+px, 9999px, random(200)+px, 0);
+  }
+
+  35% {
+    clip: rect(random(300)+px, 9999px, random(300)+px, 0);
+  }
+
+  40% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  45% {
+    clip: rect(random(300)+px, 9999px, random(300)+px, 0);
+  }
+
+  50% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  55% {
+    clip: rect(random(500)+px, 9999px, random(500)+px, 0);
+  }
+
+  60% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  65% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  70% {
+    clip: rect(random(300)+px, 9999px, random(300)+px, 0);
+  }
+
+  75% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  80% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  85% {
+    clip: rect(random(500)+px, 9999px, random(500)+px, 0);
+  }
+
+  90% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  95% {
+    clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+  }
+
+  100% {
+    clip: rect(random(300)+px, 9999px, random(300)+px, 0);
+  }
+}
+
+
+
+$base: #fff;
+$ease: cubic-bezier(0.165, 0.84, 0.44, 1);
+.drop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%);
+  width: 50vmin;
+  height: 50vmin;
+  border-radius: 50%;
+  filter: blur(1vmin);
+  box-shadow: -5vmin -5vmin 5vmin lighten($base, 5%),
+  5vmin 5vmin 5vmin darken($base, 10%),
+  inset -5vmin -5vmin 5vmin lighten($base, 5%),
+  inset 5vmin 5vmin 5vmin darken($base, 10%);
+  border: 0 solid $base;
+  animation: expand 4s $ease infinite;
+
+  @keyframes expand {
+    0% {
+      width: 0;
+      height: 0;
+      box-shadow: -5vmin -5vmin 5vmin lighten($base, 5%),
+      5vmin 5vmin 5vmin darken($base, 10%),
+      inset -5vmin -5vmin 5vmin lighten($base, 5%),
+      inset 5vmin 5vmin 5vmin darken($base, 10%);
+      border: 0 solid transparentize($base, .5);
+    }
+    5% {
+      box-shadow: -5vmin -5vmin 5vmin lighten($base, 5%),
+      5vmin 5vmin 5vmin darken($base, 10%),
+      inset -5vmin -5vmin 5vmin lighten($base, 5%),
+      inset 5vmin 5vmin 5vmin darken($base, 10%);
+      border: 2vmin solid transparentize($base, .5);
+    }
+    90% {
+      box-shadow: none;
+      border: 2vmin solid transparentize($base, .5);
+    }
+    100% {
+      width: 100vmin;
+      height: 100vmin;
+      box-shadow: none;
+      border: 0 solid transparentize($base, .5);
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 0%;
+    border-radius: 50%;
+    animation: expand1 4s $ease infinite;
+    box-shadow: -5vmin -5vmin 5vmin lighten($base, 5%),
+    5vmin 5vmin 5vmin darken($base, 10%),
+    inset -5vmin -5vmin 5vmin lighten($base, 5%),
+    inset 5vmin 5vmin 5vmin darken($base, 10%);
+
+    @keyframes expand1 {
+      0% {
+        width: 0%;
+        height: 0%;
+        box-shadow: -5vmin -5vmin 5vmin lighten($base, 5%),
+        5vmin 5vmin 5vmin darken($base, 10%),
+        inset -5vmin -5vmin 5vmin lighten($base, 5%),
+        inset 5vmin 5vmin 5vmin darken($base, 10%);
+        border: 0 solid $base;
+      }
+      20% {
+        box-shadow: -5vmin -5vmin 5vmin lighten($base, 5%),
+        5vmin 5vmin 5vmin darken($base, 10%),
+        inset -5vmin -5vmin 5vmin lighten($base, 5%),
+        inset 5vmin 5vmin 5vmin darken($base, 10%);
+      }
+      100% {
+        width: 60%;
+        height: 60%;
+        box-shadow: none;
+        border: 1vmin solid $base;
+      }
+    }
+  }
+}
+
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.welcome__text {
+  color: $colorWhiteWithOpacity;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: calc(100/1440 * 80vw);
+
+  span {
+    color: $colorPrimary;
+    transition: text-shadow .3s;
+    cursor: crosshair;
+
+    &:hover {
+      text-shadow: 3px 3px 20px rgb(21 21 21 / 85%), 0 -1px 0 $colorPrimary, 1px 0 0 $colorPrimary, -1px 0 0 $colorPrimary, 0 1px 0 $colorPrimary, -20px 0 20px rgb(21 21 21 / 75%), 2px 2px 0 $colorPrimary, 3px 3px 0 #fff, 4px 4px 20px rgb(21 21 21 / 65%), 5px 5px 0 $colorPrimary, 4px 4px 20px rgb(21 21 21 / 50%), 4px 4px 0 $colorPrimary;
+    }
+  }
+}
