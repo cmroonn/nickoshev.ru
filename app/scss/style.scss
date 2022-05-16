@@ -10,6 +10,13 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Rubik", sans-serif;
+  padding: 0;
+  background: $colorBlack;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .glitched {
@@ -77,7 +84,7 @@ body {
   left: 0;
   right: 0;
   font-family: 'Koulen', cursive;
-  font-size: 21.5vw;
+  font-size: 20vw;
   color: $colorWhite;
   background-color: $colorBlack;
   font-weight: bold;
@@ -97,12 +104,16 @@ body {
     &:before {
       @include glitchText(-1px, 'NIKITA OSHEV');
     }
+
+    @media (max-width: 500px) {
+      transform: unset;
+    }
   }
 
   &.hide {
-    transform: skew(10deg, 20deg) translate(100%, 100%);
     opacity: 0;
-    transition: transform 5s ease, opacity .5s ease;
+    transition: opacity .5s ease;
+
   }
 
 }
