@@ -29,6 +29,10 @@ body {
   display: flex;
 }
 
+.d-none {
+  display: none;
+}
+
 .jc-center {
   justify-content: center;
 }
@@ -116,7 +120,6 @@ body {
   &.hide {
     opacity: 0;
     transition: opacity .5s ease;
-    z-index: -10;
   }
 
 }
