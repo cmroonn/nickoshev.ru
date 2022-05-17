@@ -17,6 +17,11 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: $colorWhite;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -51,7 +56,13 @@ body {
   color: $colorWhite;
   font-family: 'Koulen', cursive;
   font-size: 1.5em;
-  padding: 20px 0;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.header__logo {
+  margin: auto;
 }
 
 .logo {
@@ -334,5 +345,42 @@ $ease: cubic-bezier(0.165, 0.84, 0.44, 1);
     &:hover {
       text-shadow: 3px 3px 20px rgb(21 21 21 / 85%), 0 -1px 0 $colorPrimary, 1px 0 0 $colorPrimary, -1px 0 0 $colorPrimary, 0 1px 0 $colorPrimary, -20px 0 20px rgb(21 21 21 / 75%), 2px 2px 0 $colorPrimary, 3px 3px 0 #fff, 4px 4px 20px rgb(21 21 21 / 65%), 5px 5px 0 $colorPrimary, 4px 4px 20px rgb(21 21 21 / 50%), 4px 4px 0 $colorPrimary;
     }
+  }
+}
+
+
+.header__socials {
+  display: flex;
+  align-items: center;
+}
+
+
+.header__socials__point {
+  margin-right: 15px;
+  display: flex;
+  svg {
+    fill: $colorWhiteWithOpacity;
+    transition: .35s $ease;
+  }
+
+  &:hover {
+    svg {
+      transition: .35s $ease;
+      fill: $colorPrimary;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.header__email {
+  color: $colorWhiteWithOpacity;
+  transition: .35s $ease;
+  margin-left: auto;
+
+  &:hover {
+    color: $colorPrimary;
+    transition: .35s $ease;
   }
 }
