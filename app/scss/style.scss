@@ -15,6 +15,7 @@ body {
   padding: 0;
   background: $colorBlack;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 a {
@@ -373,6 +374,13 @@ $ease: cubic-bezier(0.165, 0.84, 0.44, 1);
   &:last-child {
     margin-right: 0;
   }
+
+  @media (max-width: 500px) {
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 .header__email {
   color: $colorWhiteWithOpacity;
@@ -382,5 +390,9 @@ $ease: cubic-bezier(0.165, 0.84, 0.44, 1);
   &:hover {
     color: $colorPrimary;
     transition: .35s $ease;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 0.6em;
   }
 }
